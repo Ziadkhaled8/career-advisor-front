@@ -1,0 +1,36 @@
+.auth-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #f3f4f6;
+
+  .auth-card {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .switch-link {
+      margin-top: 1rem;
+      text-align: center;
+
+      a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

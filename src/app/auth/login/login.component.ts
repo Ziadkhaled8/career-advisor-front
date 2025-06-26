@@ -13,24 +13,30 @@ import { CommonModule } from '@angular/common';
 })
 export class LoginComponent {
   loginForm: FormGroup;
-
+  isLoading = false;
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
-        });
+    });
   }
 
   login() {
-    const { email, password} = this.loginForm.value;
+    const { email, password } = this.loginForm.value;
 
 
     this.authService.login({ email, password }).subscribe({
       next: (res) => {
-        localStorage.setItem('jwt', res.token);
-        this.router.navigate(['/profile']);
+        this.isLoading = true;
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('email', email);
+          localStorage.setItem('jwt', res.token);
+        }
+        this.router.navigate(['/dashboard']);
       },
-      error: () => alert('Register failed')
+      error: () =>{ 
+        this.isLoading = false;
+        alert('Login failed')}
     });
 
   }

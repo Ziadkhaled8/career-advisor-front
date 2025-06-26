@@ -1,0 +1,123 @@
+<mat-horizontal-stepper linear #stepper>
+  <!-- ─────── STEP 1 ─ background ─────── -->
+  <mat-step [stepControl]="backgroundForm">
+    <form [formGroup]="backgroundForm">
+      <h2>Background</h2>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Education Level</mat-label>
+        <input matInput formControlName="educationLevel" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Current Job Title</mat-label>
+        <input matInput formControlName="currentJobTitle" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Years of Experience</mat-label>
+        <input
+          matInput
+          type="number"
+          formControlName="yearsOfExperience"
+        />
+      </mat-form-field>
+
+      <div class="stepper-actions">
+        <span></span>
+        <button mat-raised-button color="primary" matStepperNext>
+          Next
+        </button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- ─────── STEP 2 ─ skills ─────── -->
+  <mat-step [stepControl]="skillsForm">
+    <form [formGroup]="skillsForm">
+      <h2>Select Your Skills</h2>
+
+      <mat-chip-listbox
+        multiple
+        aria-label="Skill selection"
+        formControlName="skills"
+      >
+        <mat-chip-option
+          *ngFor="let skill of availableSkills"
+          [value]="skill"
+        >
+          {{ skill }}
+        </mat-chip-option>
+      </mat-chip-listbox>
+
+      <div class="stepper-actions">
+        <button mat-stroked-button color="primary" matStepperPrevious>
+          Back
+        </button>
+        <button mat-raised-button color="primary" matStepperNext>
+          Next
+        </button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- ─────── STEP 3 ─ interests ─────── -->
+  <mat-step [stepControl]="interestsForm">
+    <form [formGroup]="interestsForm">
+      <h2>Select Your Interests</h2>
+
+      <mat-chip-listbox
+        multiple
+        aria-label="Interest selection"
+        formControlName="interests"
+      >
+        <mat-chip-option
+          *ngFor="let interest of availableInterests"
+          [value]="interest"
+        >
+          {{ interest }}
+        </mat-chip-option>
+      </mat-chip-listbox>
+
+      <div class="stepper-actions">
+        <button mat-stroked-button color="primary" matStepperPrevious>
+          Back
+        </button>
+        <button mat-raised-button color="primary" matStepperNext>
+          Next
+        </button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- ─────── STEP 4 ─ goals ─────── -->
+  <mat-step [stepControl]="goalsForm">
+    <form [formGroup]="goalsForm">
+      <h2>Select Your Career Goals</h2>
+
+      <mat-chip-listbox
+        multiple
+        aria-label="Goal selection"
+        formControlName="goals"
+      >
+        <mat-chip-option *ngFor="let goal of availableGoals" [value]="goal">
+          {{ goal }}
+        </mat-chip-option>
+      </mat-chip-listbox>
+
+      <div class="stepper-actions">
+        <button mat-stroked-button color="primary" matStepperPrevious>
+          Back
+        </button>
+        <button
+          mat-raised-button
+          color="accent"
+          (click)="submitProfile()"
+          [disabled]="!isWizardValid"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </mat-step>
+</mat-horizontal-stepper>

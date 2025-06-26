@@ -1,0 +1,28 @@
+.navbar {
+  font-family: 'Segoe UI', sans-serif;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  .nav-link {
+    color: #ccc;
+    font-weight: 500;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  .btn-outline-primary, .btn-outline-danger {
+    font-size: 0.9rem;
+    padding: 6px 16px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .navbar-brand {
+    color: #fff !important;
+  }
+}

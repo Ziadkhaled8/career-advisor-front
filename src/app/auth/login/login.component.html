@@ -1,37 +1,15 @@
-<div class="auth-container">
-  <div class="auth-card">
-    <h2>Login</h2>
-    <form (ngSubmit)="login()" [formGroup]="loginForm">
-      <div class="form-group mb-3">
-        <label for="email">Email</label>
-        <input
-          id="email"
-          type="email"
-          class="form-control"
-          formControlName="email"
-          placeholder="Enter email"
-        />
-      </div>
-
-      <div class="form-group mb-3">
-        <label for="password">Password</label>
-        <input
-          id="password"
-          type="password"
-          class="form-control"
-          formControlName="password"
-          placeholder="Enter password"
-        />
-      </div>
-
-      <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid">
-        Login
-      </button>
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-tr from-indigo-200 to-purple-300">
+  <div class="bg-white/80 backdrop-blur-md p-8 rounded-2xl shadow-xl w-full max-w-md">
+    <h2 class="text-2xl font-bold text-center mb-6 text-indigo-700">Login</h2>
+    <form>
+      <!-- Inputs -->
+      <input class="mb-4 w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-300" placeholder="Email">
+      <input class="mb-6 w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-300" placeholder="Password" type="password">
+      <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-xl transition">Login</button>
     </form>
-
-    <p class="switch-link">
-      Don't have an account?
-      <a routerLink="/register">Register here</a>
+    <p class="mt-4 text-center text-sm text-gray-600">
+      Don’t have an account?
+      <a routerLink="/register" class="text-indigo-600 font-semibold">Register</a>
     </p>
   </div>
 </div>

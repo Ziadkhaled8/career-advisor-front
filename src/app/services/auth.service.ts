@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../environment/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private baseUrl = 'https://localhost:7182/api/auth';
+  private baseUrl = environment.apiBaseUrl+"/api/auth";
 
   constructor(private http: HttpClient) {}
 
@@ -18,6 +19,7 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('jwt');
+    localStorage.removeItem('email');
   }
 
   getToken(): string | null {

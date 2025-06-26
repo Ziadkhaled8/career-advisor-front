@@ -2,6 +2,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { RecommendationResponse } from '../interfaces/recommendation-response';
+import { environment } from '../environment/environment';
 
 export interface LearningResource {
   title: string;
@@ -19,11 +21,11 @@ export interface CareerRecommendation {
   providedIn: 'root'
 })
 export class CareerRecommendationService {
-  private apiUrl = 'https://localhost:7182/api/recommendation';
+  private apiUrl = environment.apiBaseUrl+"/api/recommendation";
 
   constructor(private http: HttpClient) {}
 
-  getRecommendations(): Observable<CareerRecommendation[]> {
-    return this.http.get<CareerRecommendation[]>(this.apiUrl);
+  getRecommendations(): Observable<RecommendationResponse> {
+    return this.http.get<RecommendationResponse>(this.apiUrl);
   }
 }

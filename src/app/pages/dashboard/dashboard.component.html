@@ -1,0 +1,46 @@
+<div class="dashboard-container">
+  <h2>Welcome, {{ userEmail }}</h2>
+
+  <div class="profile-section" *ngIf="profile">
+    <h3>Your Profile</h3>
+    <p><strong>Job Title:</strong> {{ profile.currentJobTitle }}</p>
+    <p><strong>Experience:</strong> {{ profile.yearsOfExperience }} years</p>
+    <p><strong>Education:</strong> {{ profile.educationLevel }}</p>
+    <p><strong>Skills:</strong> {{ profile.skills.join(', ') }}</p>
+    <p><strong>Interests:</strong> {{ profile.interests.join(', ') }}</p>
+    <p><strong>Goals:</strong> {{ profile.goals.join(', ') }}</p>
+  </div>
+
+  <div *ngIf="loading" class="loading">
+    <p>Loading recommendations...</p>
+  </div>
+
+  <div class="recommendations" *ngIf="!loading && recommendations.recommendations.length">
+    <h3>Career Recommendations</h3>
+
+    <div *ngFor="let rec of recommendations.recommendations" class="recommendation-card">
+      <h4>{{ rec.title }}</h4>
+      <p><strong>Match Score:</strong> {{ rec.matchScore }}%</p>
+
+      <div *ngIf="rec.skillGaps.length">
+        <p><strong>Skill Gaps:</strong></p>
+        <ul>
+          <li *ngFor="let skill of rec.skillGaps">{{ skill }}</li>
+        </ul>
+      </div>
+
+      <div *ngIf="rec.resources.length">
+        <p><strong>Suggested Resources:</strong></p>
+        <ul>
+          <li *ngFor="let res of rec.resources">
+            <a [href]="res.url" target="_blank">{{ res.title }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!loading && !recommendations.recommendations.length" class="no-recommendations">
+    <p>No recommendations found. Try updating your profile or check again later.</p>
+  </div>
+</div>

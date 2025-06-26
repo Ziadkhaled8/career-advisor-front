@@ -1,0 +1,37 @@
+.dashboard-container {
+  padding: 2rem;
+
+  h2, h3, h4 {
+    color: #333;
+  }
+
+  .profile-section,
+  .recommendations {
+    margin-top: 2rem;
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .recommendation-card {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1rem;
+  }
+
+  a {
+    color: #007bff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .loading, .no-recommendations {
+    margin-top: 2rem;
+    font-style: italic;
+    color: #666;
+  }
+}

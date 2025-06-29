@@ -10,6 +10,15 @@ export interface CareerRecommendation {
   resources: LearningResource[];
 }
 
+export interface CareerRecommendationBriefDto {
+  id: number;
+  title: string;
+  matchScore: number;
+  createdAt: Date;
+  skillGaps: string[];
+  resources: LearningResource[];
+}
+
 export interface RecommendationResponse {
   recommendations: CareerRecommendation[];
 }

@@ -2,6 +2,9 @@
   <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
     <span class="text-xl font-bold text-indigo-600">CareerAdvisor</span>
     <div class="space-x-4">
+      <a class="nav-link" routerLink="/saved" *ngIf="isLoggedIn">Saved</a>
+      <a class="nav-link" routerLink="/dashboard" *ngIf="isLoggedIn">Dashboard</a>
+      <a class="nav-link" routerLink="/userprofile" *ngIf="isLoggedIn">Profile</a>
       <a routerLink="/login" routerLinkActive="font-semibold text-indigo-500">Login</a>
       <a routerLink="/register" routerLinkActive="font-semibold text-indigo-500">Register</a>
     </div>
